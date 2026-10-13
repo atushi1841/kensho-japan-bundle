@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.atushi1841/kensho-japan-bundle",
+  "description": "Kensho Japan Data Bundle \u2014 8 MCP servers in 1. 29 tools.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/atushi1841/kensho-japan-bundle",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/atushi1841/kensho-japan-bundle/releases/download/v1.0.0/server.mcpb",
+      "version": "1.0.0",
+      "fileSha256": "a8bd1760b245e4efff008b49c4aac725253850c5b21c9f3049b1d1b725a5ab82",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
