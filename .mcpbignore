@@ -1,0 +1,17 @@
+# MCPB ignore — excluded from bundle
+.git/
+.github/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+node_modules/
+storage/
+tmp/
+tests/
+*.mcpb
+manifest.json.bak
+scripts/
+.mcpbignore
+uv.lock
