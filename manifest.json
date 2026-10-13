@@ -1,0 +1,79 @@
+{
+  "manifest_version": "0.4",
+  "name": "kensho-japan-bundle",
+  "display_name": "Kensho Japan Data Bundle — 8 MCP Servers in 1",
+  "version": "1.0.0",
+  "description": "Unified MCP bundle combining 8 Japanese data sources: intel (earthquakes/weather), fuel & minimum wage stats, sweepstakes (1133 obs), TCG prices (960 obs), e-commerce search, and Apify actor wrapper. 29 tools total.",
+  "long_description": "Kensho Japan Data Bundle は、日本の8つのデータソースを1つのMCPサーバーに統合したパッケージです。\n\n## 提供ツール（29 tools）\n\n| ソース | ツール数 | 内容 |\n|--------|----------|------|\n| Japan Intel | 8 | 地震・天気・台風・郵便番号・EDINET（ライブAPI） |\n| Fuel Prices | 5 | 資源エネルギー庁 燃料価格（ローカルキャッシュ+ライブ） |\n| Minimum Wage | 4 | 厚生労働省 最低賃金（ローカルキャッシュ+ライブ） |\n| Sweepstakes | 3 | 懸賞データ 1133件（ローカル読み取り専用） |\n| TCG Prices | 3 | 駿河屋 TCG価格 960件（ローカル読み取り専用） |\n| E-Commerce | 2 | メルカリ・ヤフオク・駿河屋検索URL |\n| Apify | 4 | Apify Actor ラッパー（APIFY_TOKEN必要） |\n\n## 動作要件\n\n- 完全ローカル実行可能ツール多数（APIキー不要）\n- 依存解決に [uv](https://docs.astral.sh/uv/) を使用\n- Python 3.10以上\n- `APIFY_TOKEN` 環境変数でApifyツール有効化",
+  "author": {
+    "name": "atushi1841",
+    "url": "https://github.com/atushi1841"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atushi1841/kensho-japan-bundle"
+  },
+  "homepage": "https://github.com/atushi1841/kensho-japan-bundle",
+  "server": {
+    "type": "python",
+    "entry_point": "src/stdio_main.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${__dirname}",
+        "src/stdio_main.py"
+      ]
+    }
+  },
+  "compatibility": {
+    "platforms": ["darwin", "linux", "win32"],
+    "runtimes": {"python": ">=3.10"}
+  },
+  "keywords": [
+    "japan",
+    "mcp",
+    "bundle",
+    "sweepstakes",
+    "tcg",
+    "fuel-price",
+    "minimum-wage",
+    "earthquake",
+    "weather",
+    "mercari",
+    "yahoo-auctions",
+    "public-data"
+  ],
+  "tools": [
+    {"name": "current_sweep", "description": "Latest sweep matching keyword"},
+    {"name": "sweep_history", "description": "Sweep price time series"},
+    {"name": "top_prize_movers", "description": "Biggest prize value movers"},
+    {"name": "tcg_current_price", "description": "Current TCG used/new/list price"},
+    {"name": "tcg_price_history", "description": "TCG price time series"},
+    {"name": "tcg_top_movers", "description": "Biggest TCG price movers"},
+    {"name": "search_japan_marketplace", "description": "Search Mercari/Yahoo/Suruga-ya"},
+    {"name": "get_japan_resale_guidance", "description": "Resale guidance by category"},
+    {"name": "japan_earthquakes", "description": "JMA earthquake info (live)"},
+    {"name": "japan_weather_warnings", "description": "JMA weather warnings (live)"},
+    {"name": "japan_weather_overview", "description": "JMA weather overview (live)"},
+    {"name": "japan_typhoons", "description": "JMA typhoon info (live)"},
+    {"name": "japan_postal_lookup", "description": "Postal code lookup (live)"},
+    {"name": "japan_weekly_forecast", "description": "JMA weekly forecast (live)"},
+    {"name": "japan_edinet_filings", "description": "EDINET corporate filings (live)"},
+    {"name": "japan_watch_summary", "description": "JMA watch summary (live)"},
+    {"name": "get_latest_fuel_price", "description": "METI fuel price latest"},
+    {"name": "get_fuel_price_history", "description": "METI fuel price history"},
+    {"name": "cheapest_prefectures", "description": "Cheapest fuel prefectures"},
+    {"name": "national_fuel_trend", "description": "Nationwide fuel trend"},
+    {"name": "list_fuel_regions", "description": "Fuel regions/products list"},
+    {"name": "get_minimum_wage", "description": "MHLW minimum wage latest"},
+    {"name": "get_minimum_wage_history", "description": "MHLW minimum wage history"},
+    {"name": "rank_minimum_wages", "description": "Rank prefectures by wage"},
+    {"name": "list_prefectures", "description": "Prefectures list with years"},
+    {"name": "list_actors", "description": "List Apify actors (needs APIFY_TOKEN)"},
+    {"name": "run_actor", "description": "Run Apify actor"},
+    {"name": "get_run", "description": "Get Apify run status"},
+    {"name": "get_dataset", "description": "Get Apify dataset items"}
+  ]
+}
